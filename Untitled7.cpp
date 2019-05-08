@@ -13,6 +13,7 @@ class Klas1
 		ifstream dosyaOku;
 		void PersonelEkle();
 		void PersonelSil();
+		void PersonelGuncelle();
 };
 
 void Klas1::PersonelEkle()
@@ -94,7 +95,7 @@ void Klas1::PersonelEkle()
 
 							else if (olo == 1) {
 								system("cls");
-								cout << "BU TCKN KAYITLARDA BULUNMAKTA. BASKA BÝR TCKN GIRINIZ...\n";			//olo deðikenine 1 atanmýþsa uyarý verir.
+								cout << "BU TCKN KAYITLARDA BULUNMAKTA. BASKA BIR TCKN GIRINIZ...\n";			//olo deðikenine 1 atanmýþsa uyarý verir.
 								system("pause");
 								system("cls");
 							}
@@ -103,14 +104,14 @@ void Klas1::PersonelEkle()
 						dosyaYaz << ad << "\t" << soyad << "\t" << tutTC << endl;
 						dosyaYaz.close();
 						system("cls");
-						cout << "PERSONEL KAYDI YAPILMIÞTIR\n";
+						cout << "PERSONEL KAYDI YAPILMISTIR\n";
 						system("pause");
 						do {
 							system("cls");
 							cout << "YENI KAYIT(e/h): ";
 							cin >> kontrol;
 							if (kontrol != "e"&&kontrol != "h") {
-								cout << "\n-e- VEYA -h- HARFLERÝNDEN BÝRÝNÝ GÝRÝN...\n";
+								cout << "\n-e- VEYA -h- HARFLERINDEN BIRINI GIRIN...\n";
 								system("pause");
 								system("cls");
 							}
@@ -179,11 +180,35 @@ void Klas1::PersonelSil()
 					} while (kontrol1 == "e");
 				}
 
+void Klas1::PersonelGuncelle()
+{
+	cout << "PERSONEL ADI" << "\t" << "PERSONEL SOYADI" << "\t" << "PERSOENL TCKN\n";
+					for (int i = 0; i < 53; i++) {
+						cout << "_";
+						if (i == 10)
+							cout << "\t";
+						if (i == 25)
+							cout << "\t";
+					}
+					cout << endl;
+					dosyaOku.open("personelKayit.txt");
+					while (dosyaOku >> ad >> soyad >> tckn) {
+						string ad1 = ad, soyad1 = soyad;
+
+						cout << left << setw(18 - (ad1.length())) << ad << "\t" << left << setw(16 - (soyad1.length())) << soyad << "\t" << tckn << endl;
+					}
+					dosyaOku.close();
+
+					system("pause");
+					system("cls");
+}
+
 int main()
 {
-	system("color 20");
+	system("color F4");
 	Klas1 Personel1;
 	Personel1.PersonelEkle();
 	Personel1.PersonelSil();
+	Personel1.PersonelGuncelle();
 	return 0;
 }
