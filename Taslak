@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+#include <locale.h>
+#include <iomanip>
+#include <Windows.h>
+#include <fstream>
+
+using namespace std;
+
+class Klas1 
+{	
+    char ilacismi;
+    float barkodno;
+    int adet;
+	int fiyat;
+public:
+	void ilacEkle();
+	void PersonelEkle();
+	void ilacListele();
+	void PersonelListele();
+};
+
+void Klas1::IlacEkle()
+{
+	
+}
+
+void Klas1::PersonelEkle()
+{
+	
+}
+
+void Klas1::ilacListele()
+{
+	
+}
+
+void Klas1::PersonelListele()
+{
+	
+}
+
+class Klas2
+{
+	
+	public:
+	void ilacSil();
+	void PersonelSil();
+	void PersonelGuncelle();
+};
+
+void Klas2::ilacSil()
+{
+	
+}
+
+void Klas2::PersonelSil()
+{
+	
+}
+
+void Klas2::PersonelGuncelle()
+{
+	
+}
+
+class Klas3:public Klas1,public Klas2
+{
+	
+};
+
+int main()
+{
+		
+	return 0;
+}
