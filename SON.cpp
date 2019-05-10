@@ -17,7 +17,7 @@ using namespace std;
 class Klas1 
 {
 	string ad, soyad, tckn,ilacismi,firmaismi,barkodno;
-public:
+protected:
 	void setad(char ad1);
 	void setsoyad(char soyad1);
 	void settckn(double tckn1);
@@ -303,7 +303,7 @@ class Klas2
 	string ad, soyad, tckn,ilacismi,firmaismi,barkodno;
 	ofstream dosyaYaz;
 	ifstream dosyaOku;
-	public:
+	protected:
 	void setad(char ad1);
 	void setsoyad(char soyad1);
 	void settckn(double tckn1);
@@ -455,7 +455,7 @@ void Klas2::PersonelSil()
 					} while (kontrol1 == "e");
 }
 
-class Klas3:public Klas1,public Klas2
+class Klas3:protected Klas1,protected Klas2
 {	
 	string secim,secim1,secim2;  //Menü seçimlerinde kullanýlan deðiþken.
 	public:
