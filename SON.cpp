@@ -1,3 +1,10 @@
+//===========================================================================
+// ECZANE OTOMASYONU (C++)
+// Muhittin Cetin
+// muhittincetinn@outlook.com
+// the most important program for me...it's my first oop try.
+//===========================================================================
+
 #include <iostream>
 #include <string>
 #include <locale.h>
@@ -8,9 +15,15 @@
 using namespace std;
 
 class Klas1 
-{	
+{
 	string ad, soyad, tckn,ilacismi,firmaismi,barkodno;
 public:
+	void setad(char ad1);
+	void setsoyad(char soyad1);
+	void settckn(double tckn1);
+	void setilacismi(char ilacismi1);
+	void setfirmaismi(char firmaismi1);
+	void setbarkodno(double barkodno1);
 	ofstream dosyaYaz;
 	ifstream dosyaOku;
 	void IlacEkle();
@@ -18,6 +31,26 @@ public:
 	void IlacListele();
 	void PersonelListele();
 };
+
+void Klas1::setad(char ad1){
+	ad=ad1;
+}
+void Klas1::setsoyad(char soyad1){
+	soyad=soyad1;
+}
+void Klas1::settckn(double tckn1){
+	tckn=tckn1;
+}
+void Klas1::setilacismi(char ilacismi1){
+	ilacismi=ilacismi1;
+}
+void Klas1::setfirmaismi(char firmaismi1){
+	firmaismi=firmaismi1;
+}
+void Klas1::setbarkodno(double barkodno1){
+	barkodno=barkodno1;
+}
+
 
 void Klas1::IlacEkle()
 {
@@ -38,7 +71,7 @@ void Klas1::IlacEkle()
 							}
 							if (pl == 1) {
 								system("cls");
-								cout << "ISIM BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n";
+								cout << "ISIM BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n\a";
 								system("pause");
 								system("cls");
 							}
@@ -57,7 +90,7 @@ void Klas1::IlacEkle()
 							}
 							if (pl == 1) {
 								system("cls");
-								cout << "ISIM BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n";
+								cout << "ISIM BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n\a";
 								system("pause");
 								system("cls");
 							}
@@ -85,23 +118,22 @@ void Klas1::IlacEkle()
 							}
 							if (u == 1) {
 								system("cls");
-								cout << "BARKOD NUMARASI SADECE RAKAMLARDAN OLUSMALI...\n";			//u deðiþkenine 1 atanmýþsa uyarý verir.
+								cout << "BARKOD NUMARASI SADECE RAKAMLARDAN OLUSMALI...\n\a";			//u deðiþkenine 1 atanmýþsa uyarý verir.
 								system("pause");
 								system("cls");
 							}
 							else if (tutBarkodNo.length() != 5) {
 								system("cls");
-								cout << "BARKOD NUMARASI 5 HANELI OLMALI...\n";					//tckn 11 haneli deðilse uyarý verir.
+								cout << "BARKOD NUMARASI 5 HANELI OLMALI...\n\a";					//tckn 11 haneli deðilse uyarý verir.
 								system("pause");
 								system("cls");
 							}
 							else if (olo == 1) {
 								system("cls");
-								cout << "BU BARKOD NUMARASI KAYITLARDA BULUNMAKTA. BASKA BIR NUMARA GIRINIZ...\n";			//olo deðikenine 1 atanmýþsa uyarý verir.
+								cout << "BU BARKOD NUMARASI KAYITLARDA BULUNMAKTA. BASKA BIR NUMARA GIRINIZ...\n\a";			//olo deðikenine 1 atanmýþsa uyarý verir.
 								system("pause");
 								system("cls");
 							}
-
 						} while (u == 1 || tutBarkodNo.length() != 5 || olo == 1); //eðer uyarýlardan biri bile olduysa tckn nin yeniden girilmesini ister.
 						dosyaYaz.open("IlacKayit.txt", ios::app);
 						dosyaYaz << ilacismi << "\t" << firmaismi << "\t" << tutBarkodNo << endl;
@@ -114,11 +146,10 @@ void Klas1::IlacEkle()
 							cout << "YENI KAYIT(e/h): ";
 							cin >> kontrol;
 							if (kontrol != "e"&&kontrol != "h") {
-								cout << "\n-e- VEYA -h- HARFLERINDEN BIRINI GIRIN...\n";
+								cout << "\n-e- VEYA -h- HARFLERINDEN BIRINI GIRIN...\n\a";
 								system("pause");
 								system("cls");
 							}
-
 						} while (kontrol != "e"&&kontrol != "h");
 					} while (kontrol == "e");
 }
@@ -142,7 +173,7 @@ void Klas1::PersonelEkle()
 							}
 							if (pl == 1) {
 								system("cls");
-								cout << "ISIM BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n";
+								cout << "ISIM BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n\a";
 								system("pause");
 								system("cls");
 							}
@@ -156,12 +187,11 @@ void Klas1::PersonelEkle()
 								int n = static_cast<int>(soyad[i]);
 								if (!((n > 64 && n < 91) || (n > 96 && n < 123))) {
 									pl = 1;
-
 								}
 							}
 							if (pl == 1) {
 								system("cls");
-								cout << "SOYAD BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n";
+								cout << "SOYAD BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n\a";
 								system("pause");
 								system("cls");
 							}
@@ -180,7 +210,6 @@ void Klas1::PersonelEkle()
 									olo = 1;
 							}
 							dosyaOku.close();
-
 							for (int i = 0; i < (tutTC.length()); i++) {
 								n = tutTC[i];
 								p = static_cast<int>(n);
@@ -189,20 +218,19 @@ void Klas1::PersonelEkle()
 							}
 							if (u == 1) {
 								system("cls");
-								cout << "TCKN SADECE RAKAMLARDAN OLUÞMALI...\n";			//u deðiþkenine 1 atanmýþsa uyarý verir.
+								cout << "TCKN SADECE RAKAMLARDAN OLUÞMALI...\n\a";			//u deðiþkenine 1 atanmýþsa uyarý verir.
 								system("pause");
 								system("cls");
 							}
 							else if (tutTC.length() != 11) {
 								system("cls");
-								cout << "TCKN 11 HANELI OLMALI...\n";					//tckn 11 haneli deðilse uyarý verir.
+								cout << "TCKN 11 HANELI OLMALI...\n\a";					//tckn 11 haneli deðilse uyarý verir.
 								system("pause");
 								system("cls");
 							}
-
 							else if (olo == 1) {
 								system("cls");
-								cout << "BU TCKN KAYITLARDA BULUNMAKTA. BASKA BIR TCKN GIRINIZ...\n";			//olo deðikenine 1 atanmýþsa uyarý verir.
+								cout << "BU TCKN KAYITLARDA BULUNMAKTA. BASKA BIR TCKN GIRINIZ...\n\a";			//olo deðikenine 1 atanmýþsa uyarý verir.
 								system("pause");
 								system("cls");
 							}
@@ -218,11 +246,10 @@ void Klas1::PersonelEkle()
 							cout << "YENI KAYIT(e/h): ";
 							cin >> kontrol;
 							if (kontrol != "e"&&kontrol != "h") {
-								cout << "\n-e- VEYA -h- HARFLERINDEN BIRINI GIRIN...\n";
+								cout << "\n-e- VEYA -h- HARFLERINDEN BIRINI GIRIN...\n\a";
 								system("pause");
 								system("cls");
 							}
-
 						} while (kontrol != "e"&&kontrol != "h");
 					} while (kontrol == "e");
 }
@@ -241,11 +268,9 @@ void Klas1::IlacListele()
 					dosyaOku.open("IlacKayit.txt");
 					while (dosyaOku >> ilacismi >> firmaismi >> barkodno) {
 						string isim1 = ilacismi, isim2 = firmaismi;
-
 						cout << left << setw(18 - (isim1.length())) << ilacismi << "\t" << left << setw(16 - (isim2.length())) << firmaismi << "\t" << barkodno << endl;
 					}
 					dosyaOku.close();
-
 					system("pause");
 					system("cls");
 }
@@ -279,15 +304,44 @@ class Klas2
 	ofstream dosyaYaz;
 	ifstream dosyaOku;
 	public:
+	void setad(char ad1);
+	void setsoyad(char soyad1);
+	void settckn(double tckn1);
+	void setilacismi(char ilacismi1);
+	void setfirmaismi(char firmaismi1);
+	void setbarkodno(double barkodno1);
+	
+	
 	void IlacSil();
 	void PersonelSil();
 };
+
+
+void Klas2::setad(char ad1){
+	ad=ad1;
+}
+void Klas2::setsoyad(char soyad1){
+	soyad=soyad1;
+}
+void Klas2::settckn(double tckn1){
+	tckn=tckn1;
+}
+void Klas2::setilacismi(char ilacismi1){
+	ilacismi=ilacismi1;
+}
+void Klas2::setfirmaismi(char firmaismi1){
+	firmaismi=firmaismi1;
+}
+void Klas2::setbarkodno(double barkodno1){
+	barkodno=barkodno1;
+}
+
+
 
 void Klas2::IlacSil()
 {
 string kontrol2;
 					string no1;  //tc numarasý sistemde varmý diye kontrol eden deðiþken.
-
 					do {
 						int barkodnokontrol = 0;      //silinmesi için girilen tc numaranýn var olup olmadýðýný anlamak için kullanýlan deðiþken.
 						do {
@@ -304,7 +358,7 @@ string kontrol2;
 							dosyaOku.close();
 							if (barkodnokontrol == 0) {
 								system("cls");
-								cout << "BOYLE BIR KAYIT BULUNMAMAKTADIR.\n";
+								cout << "BOYLE BIR KAYIT BULUNMAMAKTADIR.\n\a";
 								system("pause");
 								system("cls");
 							}
@@ -334,14 +388,12 @@ string kontrol2;
 							cout << "SILME ISLEMINE DEVAM ETMEK ISTERMISINIZ(e/h): ";
 							cin >> kontrol2;
 							if (kontrol2 != "e"&& kontrol2 != "h") {
-								cout << "\n-e- VEYA -h- HARFLERINDEN BIRINI GIRIN...\n";
+								cout << "\n-e- VEYA -h- HARFLERINDEN BIRINI GIRIN...\n\a";
 								system("pause");
 								system("cls");
 							}
-
 						} while (kontrol2 != "e"&&kontrol2 != "h");
 					} while (kontrol2 == "e");
-	
 }
 
 void Klas2::PersonelSil()
@@ -365,7 +417,7 @@ void Klas2::PersonelSil()
 							dosyaOku.close();
 							if (tcnokontrol == 0) {
 								system("cls");
-								cout << "BOYLE BIR KAYIT BULUNMAMAKTADIR.\n";
+								cout << "BOYLE BIR KAYIT BULUNMAMAKTADIR.\n\a";
 								system("pause");
 								system("cls");
 							}
@@ -395,11 +447,10 @@ void Klas2::PersonelSil()
 							cout << "SILME ISLEMINE DEVAM ETMEK ISTERMISINIZ(e/h): ";
 							cin >> kontrol1;
 							if (kontrol1 != "e"&&kontrol1 != "h") {
-								cout << "\n-e- VEYA -h- HARFLERINDEN BIRINI GIRIN...\n";
+								cout << "\n-e- VEYA -h- HARFLERINDEN BIRINI GIRIN...\n\a";
 								system("pause");
 								system("cls");
 							}
-
 						} while (kontrol1 != "e"&&kontrol1 != "h");
 					} while (kontrol1 == "e");
 }
@@ -452,7 +503,7 @@ void Klas3::GenelFonksiyon()
 				}
 				if ((secim1 != "1") && (secim1 != "2") && (secim1 != "3") && (secim1 != "99")) {
 					system("cls");
-					cout << "HATALI SECIM\n";
+					cout << "HATALI SECIM\n\a";
 					system("pause");
 				}
 			} while (secim1 != "99");
@@ -489,19 +540,18 @@ void Klas3::GenelFonksiyon()
 				}
 				if ((secim2 != "1") && (secim2 != "2") && (secim2 != "3") && (secim2 != "99")) {
 					system("cls");
-					cout << "HATALI SECIM\n";
+					cout << "HATALI SECIM\n\a";
 					system("pause");
 				}
 			} while (secim2 != "99");
 		}
 		if ((secim != "1") && (secim != "2") && (secim != "3") && (secim != "0")) {
 			system("cls");
-			cout << "HATALI SECIM\n";
+			cout << "HATALI SECIM\n\a";
 			system("pause");
 		}
 	} while (secim != "0");
 	system("cls");
-	
 	system("del IlacKayitTut.txt");
 	system("del PersonelKayitTut.txt");
 	system("cls");
