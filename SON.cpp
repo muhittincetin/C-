@@ -38,7 +38,7 @@ void Klas1::IlacEkle()
 							}
 							if (pl == 1) {
 								system("cls");
-								cout << "ISIM BÖLÜMÜNDE INGILIZCE HARFLERDEN BAÞKA KARAKTER KULLANILAMAZ\n";
+								cout << "ISIM BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n";
 								system("pause");
 								system("cls");
 							}
@@ -142,7 +142,7 @@ void Klas1::PersonelEkle()
 							}
 							if (pl == 1) {
 								system("cls");
-								cout << "ISIM BÖLÜMÜNDE INGILIZCE HARFLERDEN BAÞKA KARAKTER KULLANILAMAZ\n";
+								cout << "ISIM BOLUMUNDE INGILIZCE HARFLERDEN BASKA KARAKTER KULLANILAMAZ\n";
 								system("pause");
 								system("cls");
 							}
@@ -228,10 +228,10 @@ void Klas1::PersonelEkle()
 }
 
 void Klas1::IlacListele()
-{
+{	system("cls");
 	cout << "ILAC ISMI" << "\t" << "FIRMA ADI" << "\t" << "BARKOD NO\n";
 					for (int i = 0; i < 53; i++) {
-						cout << "_";
+						cout << "*";
 						if (i == 10)
 							cout << "\t";
 						if (i == 25)
@@ -251,10 +251,10 @@ void Klas1::IlacListele()
 }
 
 void Klas1::PersonelListele()
-{
-	cout << "PERSONEL ADI" << "\t" << "PERSONEL SOYADI" << "\t" << "PERSOENL TCKN\n";
+{	system("cls");
+	cout << "PERSONEL ADI" << "\t" << "PERSONEL SOYADI" << "\t" << "PERSONEL TCKN\n";
 					for (int i = 0; i < 53; i++) {
-						cout << "_";
+						cout << "*";
 						if (i == 10)
 							cout << "\t";
 						if (i == 25)
@@ -311,7 +311,7 @@ string kontrol2;
 						} while (barkodnokontrol == 0);
 						dosyaYaz.open("IlacKayitTut.txt");
 						dosyaOku.open("IlacKayit.txt");
-						while (dosyaOku >> ad >> soyad >> tckn ) 
+						while (dosyaOku >> ilacismi >> firmaismi >> barkodno ) 
 						{
 							if (barkodno != no1)
 								dosyaYaz << ilacismi << "\t" << firmaismi << "\t" << barkodno << endl;
@@ -320,7 +320,7 @@ string kontrol2;
 						dosyaYaz.close();
 						dosyaYaz.open("IlacKayit.txt");
 						dosyaOku.open("IlacKayitTut.txt");
-						while (dosyaOku >> ilacismi >> soyad >> tckn ) 
+						while (dosyaOku >> ilacismi >> firmaismi >> barkodno ) 
 						{
 							dosyaYaz << ilacismi << "\t" << firmaismi << "\t" << barkodno << endl;
 						}
@@ -341,8 +341,7 @@ string kontrol2;
 
 						} while (kontrol2 != "e"&&kontrol2 != "h");
 					} while (kontrol2 == "e");
-					system("pause");
-					system("cls");	
+	
 }
 
 void Klas2::PersonelSil()
@@ -403,8 +402,6 @@ void Klas2::PersonelSil()
 
 						} while (kontrol1 != "e"&&kontrol1 != "h");
 					} while (kontrol1 == "e");
-					system("pause");
-					system("cls");
 }
 
 class Klas3:public Klas1,public Klas2
@@ -420,11 +417,11 @@ void Klas3::GenelFonksiyon()
 		system("cls");
 		cout << "ECZANE OTOMASYONU\n";
 		for (int i = 0; i < 20; i++)
-			cout << "-";
+			cout << "*";
 		cout << endl;
 		cout << "1- ILAC ISLEMLERI\n";
 		cout << "2- PERSONEL ISLEMLERI\n";
-		cout << "99- CIKIS\n";
+		cout << "0- CIKIS\n\n";
 		cout << "SECIMINIZ: ";
 		cin >> secim;
 		if (secim == "1") {
@@ -433,12 +430,12 @@ void Klas3::GenelFonksiyon()
 				system("cls");
 				cout << "ILAC ISLEMLERI\n";
 				for (int i = 0; i < 20; i++)
-					cout << "-";
+					cout << "*";
 				cout << endl;
 				cout << "1- ILAC EKLE\n";
 				cout << "2- ILAC SIL\n";
 				cout << "3- ILACLARI LISTELE\n";
-				cout << "99- UST MENU\n";
+				cout << "99- UST MENU\n\n";
 				cout << "SECIMINIZ: ";
 				cin >> secim1;
 				if (secim1 == "1") 
@@ -469,12 +466,12 @@ void Klas3::GenelFonksiyon()
 				system("cls");
 				cout << "PERSONEL ISLEMLERI\n";
 				for (int i = 0; i < 20; i++)
-					cout << "-";
+					cout << "*";
 				cout << endl;
 				cout << "1- PERSONEL EKLE\n";
 				cout << "2- PERSONEL SIL\n";
 				cout << "3- PERSONEL LISTELE\n";
-				cout << "99- UST MENU\n";
+				cout << "99- UST MENU\n\n";
 				cout << "SECIMINIZ: ";
 				cin >> secim2;
 				//------------------------------------2 nin icindeki 1 giris-------------
@@ -497,12 +494,12 @@ void Klas3::GenelFonksiyon()
 				}
 			} while (secim2 != "99");
 		}
-		if ((secim != "1") && (secim != "2") && (secim != "3") && (secim != "99")) {
+		if ((secim != "1") && (secim != "2") && (secim != "3") && (secim != "0")) {
 			system("cls");
 			cout << "HATALI SECIM\n";
 			system("pause");
 		}
-	} while (secim != "99");
+	} while (secim != "0");
 	system("cls");
 	
 	system("del IlacKayitTut.txt");
